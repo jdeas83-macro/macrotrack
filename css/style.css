@@ -1,0 +1,916 @@
+/* ==========================================
+   MacroTrack
+   Step 3 — Main Stylesheet
+========================================== */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #0f172a;
+    --surface: #1e293b;
+    --surface-light: #334155;
+    --surface-hover: #475569;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+
+    --blue: #3b82f6;
+    --green: #22c55e;
+    --orange: #f59e0b;
+    --pink: #ec4899;
+
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+
+    --nav-height: 82px;
+}
+
+html {
+    background: var(--background);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text-primary);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- MAIN APP ---------- */
+
+.app {
+    width: 100%;
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        22px
+        calc(var(--nav-height) + 42px);
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    margin-bottom: 28px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+
+    margin-bottom: 10px;
+}
+
+#todayDate {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ---------- CARDS ---------- */
+
+.card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    padding: 24px;
+    margin-bottom: 22px;
+
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+/* ---------- MACRO ROWS ---------- */
+
+.macro {
+    margin-bottom: 25px;
+}
+
+.macro:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 10px;
+
+    font-size: 0.98rem;
+    font-weight: 650;
+}
+
+.label span:last-child {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* ---------- PROGRESS BARS ---------- */
+
+.progress {
+    width: 100%;
+    height: 14px;
+
+    overflow: hidden;
+
+    background: var(--surface-light);
+    border-radius: 999px;
+}
+
+.fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    transition:
+        width 0.45s ease,
+        filter 0.2s ease;
+}
+
+.calories {
+    background: var(--blue);
+}
+
+.protein {
+    background: var(--green);
+}
+
+.carbs {
+    background: var(--orange);
+}
+
+.fat {
+    background: var(--pink);
+}
+
+/* ---------- TODAY'S FOOD ---------- */
+
+#foodLog {
+    display: grid;
+    gap: 12px;
+}
+
+.empty {
+    color: var(--text-secondary);
+    text-align: center;
+
+    padding: 28px 12px;
+
+    line-height: 1.5;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    background: var(--surface-light);
+
+    border-radius: 17px;
+
+    padding: 16px;
+}
+
+.food-item-details {
+    min-width: 0;
+}
+
+.food-item-name {
+    font-weight: 700;
+    margin-bottom: 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.food-item-macros {
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+
+/* ---------- BUTTONS ---------- */
+
+button {
+    font: inherit;
+    border: none;
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.55);
+    outline-offset: 3px;
+}
+
+/* ---------- BOTTOM NAVIGATION ---------- */
+
+nav {
+    position: fixed;
+    z-index: 100;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 620px;
+    min-height: var(--nav-height);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding:
+        10px
+        8px
+        max(10px, env(safe-area-inset-bottom));
+
+    background: rgba(15, 23, 42, 0.94);
+
+    border-top: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+nav button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-width: 0;
+
+    padding: 8px 4px;
+
+    background: transparent;
+    color: var(--text-secondary);
+
+    border-radius: 14px;
+
+    font-size: 0.74rem;
+    font-weight: 650;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+nav button:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+}
+
+nav button:active {
+    transform: scale(0.95);
+}
+
+nav button:first-child {
+    color: var(--blue);
+}
+
+nav .icon {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+/* ---------- GENERAL FORM STYLES FOR LATER ---------- */
+
+input,
+select {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    background: var(--surface-light);
+    color: var(--text-primary);
+
+    border: 1px solid transparent;
+    border-radius: 14px;
+
+    font: inherit;
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--blue);
+    outline: none;
+}
+
+.primary-button {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    background: var(--blue);
+    color: white;
+
+    border-radius: 16px;
+
+    font-weight: 750;
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+.primary-button:hover {
+    filter: brightness(1.08);
+}
+
+.primary-button:active {
+    transform: scale(0.98);
+}
+
+/* ---------- SMALL MOBILE SCREENS ---------- */
+
+/* ==========================================
+   FOOD LIBRARY
+========================================== */
+
+.page-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin-bottom: 0;
+}
+
+#foodCount {
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+
+/* ---------- FOOD LIBRARY LIST ---------- */
+
+#foodLibrary {
+    display: grid;
+    gap: 14px;
+}
+
+.library-food-item {
+    display: grid;
+    gap: 14px;
+
+    padding: 17px;
+
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.library-food-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 14px;
+}
+
+.library-food-name {
+    margin-bottom: 5px;
+
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.library-food-serving {
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+}
+
+.library-food-macros {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.macro-value {
+    padding: 9px 5px;
+
+    background: rgba(15, 23, 42, 0.42);
+
+    border-radius: 11px;
+
+    text-align: center;
+}
+
+.macro-value strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 0.86rem;
+}
+
+.macro-value span {
+    color: var(--text-secondary);
+
+    font-size: 0.66rem;
+}
+
+.library-food-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    gap: 9px;
+}
+
+.quantity-input {
+    min-width: 0;
+}
+
+.add-food-button {
+    padding: 12px 17px;
+
+    background: var(--blue);
+    color: white;
+
+    border-radius: 13px;
+
+    font-size: 0.88rem;
+    font-weight: 750;
+}
+
+.delete-library-food {
+    flex-shrink: 0;
+
+    padding: 7px 9px;
+
+    background: transparent;
+    color: #fca5a5;
+
+    border-radius: 9px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* ---------- CUSTOM FOOD FORM ---------- */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0 14px;
+}
+
+.form-message {
+    min-height: 22px;
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: var(--green);
+
+    font-size: 0.86rem;
+    font-weight: 650;
+}
+
+.form-message.error {
+    color: #fca5a5;
+}
+
+
+/* ---------- ACTIVE NAVIGATION ---------- */
+
+nav button.active {
+    color: var(--blue);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* ==========================================
+   HISTORY PAGE
+========================================== */
+
+#historyList {
+    display: grid;
+    gap: 16px;
+}
+
+.history-day {
+    overflow: hidden;
+
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.history-day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    width: 100%;
+
+    padding: 17px;
+
+    background: transparent;
+    color: var(--text-primary);
+
+    text-align: left;
+}
+
+.history-date {
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.history-calories {
+    color: var(--text-secondary);
+
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.history-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+
+    padding: 0 17px 17px;
+}
+
+.history-foods {
+    display: none;
+
+    padding: 0 17px 17px;
+}
+
+.history-day.open .history-foods {
+    display: grid;
+    gap: 9px;
+}
+
+.history-food-entry {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 12px;
+
+    background: rgba(15, 23, 42, 0.42);
+
+    border-radius: 12px;
+}
+
+.history-food-name {
+    font-weight: 700;
+}
+
+.history-food-serving {
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+}
+
+.history-food-calories {
+    flex-shrink: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.history-toggle {
+    color: var(--blue);
+
+    font-size: 0.78rem;
+    font-weight: 750;
+}
+/* ==========================================
+   SETTINGS PAGE
+========================================== */
+
+.settings-warning {
+    margin-bottom: 18px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.settings-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.secondary-button,
+.danger-button {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border-radius: 16px;
+
+    font-weight: 750;
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+.secondary-button {
+    background: var(--surface-light);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border);
+}
+
+.danger-button {
+    background: rgba(239, 68, 68, 0.14);
+    color: #fca5a5;
+
+    border: 1px solid rgba(239, 68, 68, 0.24);
+}
+
+.secondary-button:hover,
+.danger-button:hover {
+    filter: brightness(1.12);
+}
+
+.secondary-button:active,
+.danger-button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 430px) 
+
+.install-content {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.install-button {
+    width: 100%;
+}
+
+.history-summary {
+    grid-template-columns: repeat(2, 1fr);
+}
+{
+    .app {
+        padding:
+            20px
+            15px
+            calc(var(--nav-height) + 32px);
+    }
+
+    .card {
+        padding: 19px;
+        border-radius: 21px;
+    }
+
+    .label {
+        font-size: 0.92rem;
+    }
+
+    nav button {
+        font-size: 0.68rem;
+    }
+
+    nav .icon {
+        font-size: 1.25rem;
+    }
+}
+
+/* ==========================================
+   INSTALL APP
+========================================== */
+
+.install-section {
+    margin-bottom: 20px;
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.18),
+            rgba(59, 130, 246, 0.08)
+        );
+
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 18px;
+}
+
+.install-section[hidden] {
+    display: none;
+}
+
+.install-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+}
+
+.install-content h2 {
+    margin-bottom: 5px;
+}
+
+.install-content p {
+    color: var(--text-secondary);
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.install-button {
+    flex-shrink: 0;
+
+    padding: 12px 18px;
+
+    background: var(--blue);
+    color: white;
+
+    border: none;
+    border-radius: 14px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+.install-button:hover {
+    filter: brightness(1.1);
+}
+
+.install-button:active {
+    transform: scale(0.97);
+}
+
+.install-button:disabled {
+    cursor: default;
+    opacity: 0.65;
+}
+
+.install-message {
+    min-height: 0;
+    margin-top: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.82rem;
+}
+
+/* ---------- LARGE SCREENS ---------- */
+
+@media (min-width: 700px) {
+    .app {
+        padding-top: 44px;
+    }
+
+    .card {
+        padding: 28px;
+    }
+
+    nav {
+        bottom: 14px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+/* ---------- REMOVE FOOD BUTTON ---------- */
+
+.remove-food-button {
+    flex-shrink: 0;
+
+    padding: 9px 12px;
+
+    background: rgba(239, 68, 68, 0.14);
+    color: #fca5a5;
+
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 11px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.remove-food-button:hover {
+    background: rgba(239, 68, 68, 0.24);
+}
+
+.remove-food-button:active {
+    transform: scale(0.96);
+}

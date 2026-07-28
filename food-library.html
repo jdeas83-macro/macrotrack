@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Food Library | MacroTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+        <link rel="manifest" href="manifest.json">
+
+        <link
+    rel="apple-touch-icon"
+    href="icons/apple-touch-icon.png"
+>
+
+<meta name="theme-color" content="#0f172a">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+>
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="MacroTrack"
+>
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ==========================
+         PAGE HEADER
+    =========================== -->
+
+    <header>
+        <h1>📚 Food Library</h1>
+
+        <p class="page-description">
+            Choose a food to add to today's log.
+        </p>
+    </header>
+
+
+    <!-- ==========================
+         SEARCH
+    =========================== -->
+
+    <section class="card">
+
+        <label
+            class="input-label"
+            for="foodSearch"
+        >
+            Search foods
+        </label>
+
+        <input
+            type="search"
+            id="foodSearch"
+            placeholder="Search by food name..."
+            autocomplete="off"
+        >
+
+    </section>
+
+
+    <!-- ==========================
+         FOOD LIST
+    =========================== -->
+
+    <section class="card">
+
+        <div class="section-heading">
+
+            <h2>Saved Foods</h2>
+
+            <span id="foodCount">
+                0 foods
+            </span>
+
+        </div>
+
+        <div id="foodLibrary">
+
+            <p class="empty">
+                Loading foods...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================
+         ADD CUSTOM FOOD
+    =========================== -->
+
+    <section class="card">
+
+        <h2>Add a Custom Food</h2>
+
+        <form id="addFoodForm">
+
+            <div class="form-group">
+
+                <label for="foodName">
+                    Food name
+                </label>
+
+                <input
+                    type="text"
+                    id="foodName"
+                    placeholder="Example: Greek yoghurt"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="foodServing">
+                    Serving size
+                </label>
+
+                <input
+                    type="text"
+                    id="foodServing"
+                    placeholder="Example: 100 g"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="foodCalories">
+                        Calories
+                    </label>
+
+                    <input
+                        type="number"
+                        id="foodCalories"
+                        min="0"
+                        step="0.1"
+                        placeholder="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="foodProtein">
+                        Protein (g)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="foodProtein"
+                        min="0"
+                        step="0.1"
+                        placeholder="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="foodCarbs">
+                        Carbs (g)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="foodCarbs"
+                        min="0"
+                        step="0.1"
+                        placeholder="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="foodFat">
+                        Fat (g)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="foodFat"
+                        min="0"
+                        step="0.1"
+                        placeholder="0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button"
+            >
+                Save Food
+            </button>
+
+            <p
+                id="formMessage"
+                class="form-message"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<!-- ==========================
+     BOTTOM NAVIGATION
+========================== -->
+
+<nav>
+
+    <button id="dashboardButton">
+
+        <div class="icon">🏠</div>
+
+        <div>Dashboard</div>
+
+    </button>
+
+
+    <button
+        id="libraryButton"
+        class="active"
+    >
+
+        <div class="icon">📚</div>
+
+        <div>Library</div>
+
+    </button>
+
+
+    <button id="historyButton">
+
+        <div class="icon">📈</div>
+
+        <div>History</div>
+
+    </button>
+
+
+    <button id="settingsButton">
+
+        <div class="icon">⚙</div>
+
+        <div>Settings</div>
+
+    </button>
+
+</nav>
+
+
+<script src="js/storage.js"></script>
+<script src="js/foods.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

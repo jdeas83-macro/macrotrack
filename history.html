@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>History | MacroTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+        <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0f172a">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+>
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="MacroTrack"
+><link
+    rel="apple-touch-icon"
+    href="icons/apple-touch-icon.png"
+>
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ==========================
+         PAGE HEADER
+    =========================== -->
+
+    <header>
+        <h1>📈 History</h1>
+
+        <p class="page-description">
+            Review your previous food logs and daily totals.
+        </p>
+    </header>
+
+
+    <!-- ==========================
+         HISTORY SUMMARY
+    =========================== -->
+
+    <section class="card">
+
+        <div class="section-heading">
+
+            <h2>Logged Days</h2>
+
+            <span id="historyCount">
+                0 days
+            </span>
+
+        </div>
+
+        <div id="historyList">
+
+            <p class="empty">
+                Loading history...
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ==========================
+     BOTTOM NAVIGATION
+========================== -->
+
+<nav>
+
+    <button id="dashboardButton">
+
+        <div class="icon">🏠</div>
+
+        <div>Dashboard</div>
+
+    </button>
+
+
+    <button id="libraryButton">
+
+        <div class="icon">📚</div>
+
+        <div>Library</div>
+
+    </button>
+
+
+    <button
+        id="historyButton"
+        class="active"
+    >
+
+        <div class="icon">📈</div>
+
+        <div>History</div>
+
+    </button>
+
+
+    <button id="settingsButton">
+
+        <div class="icon">⚙</div>
+
+        <div>Settings</div>
+
+    </button>
+
+</nav>
+
+
+<script src="js/storage.js"></script>
+<script src="js/history.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

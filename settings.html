@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Settings | MacroTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+        <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0f172a">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+>
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="MacroTrack"
+>
+<link
+    rel="apple-touch-icon"
+    href="icons/apple-touch-icon.png"
+>
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ==========================
+         PAGE HEADER
+    =========================== -->
+
+    <header>
+        <h1>⚙ Settings</h1>
+
+        <p class="page-description">
+            Set your daily calorie and macronutrient goals.
+        </p>
+    </header>
+
+
+    <!-- ==========================
+         DAILY GOALS
+    =========================== -->
+
+    <section class="card">
+
+        <h2>Daily Goals</h2>
+
+        <form id="settingsForm">
+
+            <div class="form-group">
+
+                <label for="calorieGoal">
+                    Calories
+                </label>
+
+                <input
+                    type="number"
+                    id="calorieGoal"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="proteinGoal">
+                    Protein (g)
+                </label>
+
+                <input
+                    type="number"
+                    id="proteinGoal"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="carbsGoal">
+                    Carbohydrates (g)
+                </label>
+
+                <input
+                    type="number"
+                    id="carbsGoal"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="fatGoal">
+                    Fat (g)
+                </label>
+
+                <input
+                    type="number"
+                    id="fatGoal"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button"
+            >
+                Save Goals
+            </button>
+
+            <p
+                id="settingsMessage"
+                class="form-message"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- ==========================
+         DATA TOOLS
+    =========================== -->
+
+    <section class="card">
+
+        <h2>Data Tools</h2>
+
+        <p class="settings-warning">
+            These actions affect information saved in this browser.
+        </p>
+
+        <div class="settings-actions">
+
+            <button
+                type="button"
+                id="resetGoalsButton"
+                class="secondary-button"
+            >
+                Reset Goals
+            </button>
+
+            <button
+                type="button"
+                id="clearTodayButton"
+                class="danger-button"
+            >
+                Clear Today's Log
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ==========================
+     BOTTOM NAVIGATION
+========================== -->
+
+<nav>
+
+    <button id="dashboardButton">
+
+        <div class="icon">🏠</div>
+
+        <div>Dashboard</div>
+
+    </button>
+
+
+    <button id="libraryButton">
+
+        <div class="icon">📚</div>
+
+        <div>Library</div>
+
+    </button>
+
+
+    <button id="historyButton">
+
+        <div class="icon">📈</div>
+
+        <div>History</div>
+
+    </button>
+
+
+    <button
+        id="settingsButton"
+        class="active"
+    >
+
+        <div class="icon">⚙</div>
+
+        <div>Settings</div>
+
+    </button>
+
+</nav>
+
+
+<script src="js/storage.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
